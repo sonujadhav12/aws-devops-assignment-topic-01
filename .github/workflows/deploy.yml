@@ -7,6 +7,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -18,11 +19,8 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ vars.AWS_REGION }}
 
-
       - name: Sync files to S3
-        run: |
-          aws s3 sync ./app s3://${{ secrets.S3_BUCKET }} --delete
+        run: aws s3 sync ./app s3://${{ vars.S3_BUCKET }} --delete
 
       - name: Invalidate CloudFront cache
-        run: |
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+        run: aws cloudfront create-invalidation --distribution-id ${{ vars.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
