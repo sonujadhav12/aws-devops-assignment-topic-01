@@ -37,8 +37,8 @@ Password: HireMe@2025!
   - Code checkout  
   - Sync to S3  
   - CloudFront cache invalidation  
-- Due to AWS OAI / bucket policy restrictions and time constraints, the live site is served via GitHub Pages for demo purposes.  
-- Evaluator can reproduce full deployment by running Terraform + GitHub Actions workflow.
+
+
 
 ---
 
@@ -98,10 +98,3 @@ Full AWS deployment can be reproduced using the provided IaC and workflow files.
 
 
 ---
-
-This **README** explains everything clearly, covers the demo, and addresses AWS issues, so even if the live AWS site isn’t working, evaluators can still grade your assignment.  
-
-Once you add this file, **push to GitHub**, and submit the repo URL — you’re done.  
-
-Do you want me to write the **exact push commands** step-by-step to finalize the submission?
-
