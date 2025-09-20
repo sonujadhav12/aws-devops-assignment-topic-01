@@ -44,7 +44,15 @@ Password: HireMe@2025!
 
 ## Architecture Diagram
 
-*(Include your draw.io / Lucidchart diagram here if available)*
+The project follows a simple architecture:
+
+- **User** → Accesses the application through **CloudFront (CDN)**.  
+- **CloudFront** → Serves cached content and forwards requests to the origin.  
+- **S3 Bucket** → Stores the static files (HTML, CSS, JS).  
+- **GitHub Actions CI/CD** → Automates deployment by syncing files to S3 and invalidating CloudFront cache after every push to the `main` branch.  
+
+This ensures fast, secure, and scalable hosting of the static website.
+
 
 ---
 
